@@ -23,10 +23,6 @@ public class NewBehaviourScript : MonoBehaviour
 		_rb = gameObject.GetComponent<Rigidbody2D>(); 
 		_player = GetChildGameObject(gameObject, "Player");
 		if(_player == null)	Debug.Log("ERROR! DID NOT GET _PLAYER OBJECT");
-		_bullet = GetChildGameObject(gameObject, "Bullet");
-		if(_bullet == null) Debug.Log("FAILED TO GET BULLET");
-		_gun = GetChildGameObject(_player, "PlayerGun");
-		if(_gun == null) Debug.Log("FAILED TO GET STICK");
 	}
 
 	void OnCollisionEnter2D(Collision2D collision)
@@ -55,23 +51,7 @@ public class NewBehaviourScript : MonoBehaviour
 		_rb.AddForce(new Vector2(_inputHorizontal * _walkSpeed, _inputVertical * _walkSpeed));
         // transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
 		
-		if (Input.GetMouseButton(0))
-		{
-			// gameObject.GetComponent<SpriteRenderer>();
-			var renderer = _gun.GetComponentInChildren<SpriteRenderer>();
-			renderer.color = new Color(1, 0, 0, 1); // Red color
-			var b = GameObject.Instantiate(_bullet);
-			b.SetActive(true);
-			b.transform.position = new Vector2(_player.transform.position.x + 2,_player.transform.position.y);
-			var rb = b.GetComponent<Rigidbody2D>();
-			rb.AddForce(new Vector2(1000, 0));	
-		}
-		else
-		{
-			var renderer = _gun.GetComponentInChildren<SpriteRenderer>();
-			renderer.color = new Color(1, 1, 1, 1); // White color
-			
-		}
+
 	}
 
 }
