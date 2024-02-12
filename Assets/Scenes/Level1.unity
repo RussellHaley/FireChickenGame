@@ -336,9 +336,10 @@ GameObject:
   m_Component:
   - component: {fileID: 337481895}
   - component: {fileID: 337481896}
-  - component: {fileID: 337481897}
   - component: {fileID: 337481899}
   - component: {fileID: 337481900}
+  - component: {fileID: 337481901}
+  - component: {fileID: 337481902}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -415,21 +416,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &337481897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 337481894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9c70f1fbc6b99a449d670016e7c6dd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  _walkSpeed: 50
-  targetPosition: {x: 0, y: 0, z: 0}
 --- !u!50 &337481899
 Rigidbody2D:
   serializedVersion: 4
@@ -492,6 +478,86 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.50000006
+--- !u!114 &337481901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337481894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec2d791d1ab2210498947fc6b30cdbc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GamePaused:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 337481902}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: EnablePlayerMovement
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2012718921}
+        m_TargetAssemblyTypeName: GunLoader, Assembly-CSharp
+        m_MethodName: EnableWeapon
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  GameResumed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 337481902}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: EnablePlayerMovement
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2012718921}
+        m_TargetAssemblyTypeName: GunLoader, Assembly-CSharp
+        m_MethodName: EnableWeapon
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &337481902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337481894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9c70f1fbc6b99a449d670016e7c6dd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movementEnabled: 1
+  _walkSpeed: 0.02
 --- !u!1 &371915379
 GameObject:
   m_ObjectHideFlags: 0
@@ -3252,8 +3318,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a08d84915a209f4a8d30910875e6dc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myPrefab: {fileID: 498328490418650694, guid: 8f00743c2adc0c84c94e37d7426f34f7, type: 3}
-  _spd: 15
+  _myPrefab: {fileID: 498328490418650694, guid: 8f00743c2adc0c84c94e37d7426f34f7, type: 3}
+  _weaponEnabled: 1
 --- !u!1 &2134059267
 GameObject:
   m_ObjectHideFlags: 0
